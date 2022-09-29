@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Autosys Job Details</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+table {
+	width: 100%;
+	border: 1px solid black;
+	border-collapse: collapse;
+	font-size: 12px;
+}
+
+th {
+	border: 1px solid black;
+	
+	text-align: left;
+}
+
+td {
+	border: 1px solid black;
+	text-align: left;
+}
+
+    </style>
+</head>
+<body>
+
+<h3>
+    Job Status: DATE_TIME <span id="dateTime1">Current Date
+			Time</span>
+</h3>
+<table>
+    <thead>
+    <tr>
+        <th bgcolor="sky blue">ImporterJob</th>
+        <th bgcolor="sky blue">Status</th>
+        <th bgcolor="sky blue">RunStartTime</th>
+        <th bgcolor="sky blue">RunEndTime</th>
+        <th bgcolor="sky blue">Description</th>
+        <th bgcolor="sky blue">Run Days</th>
+        <th bgcolor="sky blue">Time Of Day</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="res : ${response}">
+        <td><span th:text="${res.name}"> Name </span></td>
+        <td><span th:text="${res.status}"> Status </span></td>
+        <td><span th:text="${res.runStartTime}"> Name </span></td>
+        <td><span th:text="${res.runEndTime}"> Status </span></td>
+        <td><span th:text="${res.des}"> Description </span></td>
+        <td><span th:text="${res.runDays}"> run Days </span></td>
+        <td><span th:text="${res.timesOfDay}"> Time Of Day </span></td>
+    </tr>
+    </tbody>
+</table>
+
+<script type="text/javascript">
+		var myDate = new Date();
+		var hours = myDate.getHours();
+		var ampm = hours >= 12 ? 'PM' : 'AM';
+		hours = hours % 12;
+		hours = hours ? hours : 12;
+		var minutes = myDate.getMinutes();
+		var myTime = hours + ":" + minutes + " " + ampm;
+		var dateTime = myDate.getMonth() + "/" + myDate.getDate() + "/"
+				+ myDate.getFullYear() + " " + myTime;
+		document.getElementById("dateTime1").innerHTML = dateTime;
+		document.getElementById("dateTime2").innerHTML = dateTime;
+
+</script>
+</body>
+</html>
