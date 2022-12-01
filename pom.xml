@@ -1,18 +1,17 @@
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>RemiTestingAutomation</groupId>
   <artifactId>TestingAutomation</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <properties>
-    <eqe.version>3.0-SNAPSHOT</eqe.version>
-    <kotlin.version>1.0.0</kotlin.version>
-  </properties>
+    <properties>
+        <eqe.version>3.0-SNAPSHOT</eqe.version>
+        <kotlin.version>1.0.0</kotlin.version>
+        <maven.compiler.source>19</maven.compiler.source>
+        <maven.compiler.target>19</maven.compiler.target>
+    </properties>
+
   <dependencies>
-    <dependency>
-      <groupId>###  URL ###</groupId>
-      <artifactId>wf-eqe-automation-utils</artifactId>
-      <version>${eqe.version}</version>
-    </dependency>
     <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
@@ -63,49 +62,66 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>com.oracle</groupId>
-      <artifactId>ojdbc6</artifactId>
-      <version>12.1.0.1</version>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi-ooxml</artifactId>
+      <version>3.8-beta4</version>
     </dependency>
- <dependency>
-      <groupId>com.atlassian.plugins</groupId>
-      <artifactId>atlassian-plugins-osgi-testrunner</artifactId>
-      <version>2.0.2</version>
-      <scope>test</scope>
+    <dependency>
+      <groupId>org.apache.velocity</groupId>
+      <artifactId>velocity</artifactId>
+      <version>1.7</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi-ooxml</artifactId>
+      <version>3.11</version>
     </dependency>
 <!--    <dependency>-->
-<!--      <groupId>io.rest-assured</groupId>-->
-<!--      <artifactId>rest-assured</artifactId>-->
-<!--      <version>4.3.1</version>-->
-<!--      <scope>test</scope>-->
+<!--      <groupId>com.oracle</groupId>-->
+<!--      <artifactId>ojdbc6</artifactId>-->
+<!--      <version>12.1.0.1</version>-->
 <!--    </dependency>-->
 <!--    <dependency>-->
-<!--      <groupId>io.rest-assured</groupId>-->
-<!--      <artifactId>xml-path</artifactId>-->
-<!--      <version>4.2.0</version>-->
+<!--      <groupId>com.atlassian.plugins</groupId>-->
+<!--      <artifactId>atlassian-plugins-osgi-testrunner</artifactId>-->
+<!--      <version>2.0.2</version>-->
 <!--      <scope>test</scope>-->
 <!--    </dependency>-->
 
-
 <!--    <dependency>-->
-<!--      <groupId>io.rest-assured</groupId>-->
-<!--      <artifactId>json-schema-validator</artifactId>-->
-<!--      <version>4.2.0</version>-->
-<!--      <scope>test</scope>-->
+<!--      <groupId>org.apache.maven.plugins</groupId>-->
+<!--      <artifactId>maven-clean-plugin</artifactId>-->
+<!--      <version>3.3.0</version>-->
+<!--      <type>maven-plugin</type>-->
 <!--    </dependency>-->
+
+    <!--    <dependency>-->
+    <!--      <groupId>io.rest-assured</groupId>-->
+    <!--      <artifactId>xml-path</artifactId>-->
+    <!--      <version>4.2.0</version>-->
+    <!--      <scope>test</scope>-->
+    <!--    </dependency>-->
+
+
+    <!--    <dependency>-->
+    <!--      <groupId>io.rest-assured</groupId>-->
+    <!--      <artifactId>json-schema-validator</artifactId>-->
+    <!--      <version>4.2.0</version>-->
+    <!--      <scope>test</scope>-->
+    <!--    </dependency>-->
 
     <!-- https://mvnrepository.com/artifact/soap/soap -->
-<!--    <dependency>-->
-<!--      <groupId>javax</groupId>-->
-<!--      <artifactId>json-api</artifactId>-->
-<!--      <version>1.0</version>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--      <groupId>io.rest-assured</groupId>-->
-<!--      <artifactId>rest-assured-all</artifactId>-->
-<!--      <version>4.2.0</version>-->
-<!--      <scope>test</scope>-->
-<!--    </dependency>-->
+    <!--    <dependency>-->
+    <!--      <groupId>javax</groupId>-->
+    <!--      <artifactId>json-api</artifactId>-->
+    <!--      <version>1.0</version>-->
+    <!--    </dependency>-->
+    <!--    <dependency>-->
+    <!--      <groupId>io.rest-assured</groupId>-->
+    <!--      <artifactId>rest-assured-all</artifactId>-->
+    <!--      <version>4.2.0</version>-->
+    <!--      <scope>test</scope>-->
+    <!--    </dependency>-->
     <dependency>
       <groupId>javax.json</groupId>
       <artifactId>javax.json-api</artifactId>
@@ -117,12 +133,12 @@
       <artifactId>rest-assured</artifactId>
       <version>4.2.0</version>
     </dependency>
-<!--    <dependency>-->
-<!--      <groupId>RemiTestingAutomation</groupId>-->
-<!--      <artifactId>TestingAutomation</artifactId>-->
-<!--      <version>0.0.1-SNAPSHOT</version>-->
-<!--      <scope>test</scope>-->
-<!--    </dependency>-->
+    <!--    <dependency>-->
+    <!--      <groupId>RemiTestingAutomation</groupId>-->
+    <!--      <artifactId>TestingAutomation</artifactId>-->
+    <!--      <version>0.0.1-SNAPSHOT</version>-->
+    <!--      <scope>test</scope>-->
+    <!--    </dependency>-->
     <!--    onedrt_maven_deploy_virtual/Javax/json/javax.json-api/1.0/javax.json-api-1.0.jar-->
 
   </dependencies>
@@ -131,27 +147,8 @@
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>compile</id>
-            <phase>compile</phase>
-            <goals>
-              <goal>compile</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>testCompile</id>
-            <phase>test-compile</phase>
-            <goals>
-              <goal>testCompile</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <source>7</source>
-          <target>7</target>
-        </configuration>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M5</version>
       </plugin>
     </plugins>
   </build>
@@ -159,63 +156,28 @@
 
   <profiles>
     <profile>
-      <id>makeJar</id>
-      <build>
-        <pluginManagement>
-          <plugins>
-            <plugin>
-              <artifactId>maven-jar-plugin</artifactId>
-              <configuration>
-                <finalName>wf-core-selenium</finalName>
-              </configuration>
-            </plugin>
-            <plugin>
-              <artifactId>maven-surefire-plugin</artifactId>
-              <configuration>
-                <parallel>methods</parallel>
-                <threadCount>10</threadCount>
-              </configuration>
-            </plugin>
-          </plugins>
-        </pluginManagement>
-      </build>
-    </profile>
-    <profile>
-      <id>ExecutionJob</id>
-      <properties>
-        <testNG.suiteXmlFile>config/testrun_config.xml</testNG.suiteXmlFile>
-      </properties>
-      <build>
-        <pluginManagement>
-          <plugins>
-            <plugin>
-              <groupId>org.codehaus.mojo</groupId>
-              <artifactId>exec-maven-plugin</artifactId>
-              <executions>
-                <execution>
-                  <phase>integration-test</phase>
-                </execution>
-              </executions>
-            </plugin>
-          </plugins>
-        </pluginManagement>
-      </build>
-    </profile>
-    <profile>
-      <id>bbg_sec_fundoffunds_Test</id>
-      <build>
-        <pluginManagement>
-          <plugins>
-            <plugin>
-              <groupId>org.codehaus.mojo</groupId>
-              <artifactId>exec-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-              <artifactId>maven-surefire-plugin</artifactId>
-            </plugin>
-          </plugins>
-        </pluginManagement>
-      </build>
+      <id>maven-https</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <repositories>
+        <repository>
+          <id>central</id>
+          <url>https://repo1.maven.org/maven2</url>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>central</id>
+          <url>https://repo1.maven.org/maven2</url>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
     </profile>
   </profiles>
 

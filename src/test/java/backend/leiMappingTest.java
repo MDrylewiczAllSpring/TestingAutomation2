@@ -57,7 +57,9 @@ public class leiMappingTest extends TestMain {
 //
 //        //get specific queries for Staging and Final
 //        queryFinal = common.getAllFinal+barraOneTables.msci_barra_eq_stress_test.toString()+ common.where+ common.indexName+ common.equals+indexName+ common.and+" "+ common.analysisDate+" "+ common.equals+" '"+getDatePrevFinal()+"'"+ common.orderBy+ common.assetId;
+        String queryStaging = null;
         List<HashMap> rowListStaging = devConnect.connectAndGetHashTableUAT(queryStaging);
+        String queryFinal = null;
         List<HashMap> rowFinalList = devConnect.connectAndGetHashTableUAT(queryFinal);
 //        //Compare data
         compareRowsBetweenStagingInboundGLEIF(rowListStaging, excelInboundDataMap);

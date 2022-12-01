@@ -12,15 +12,16 @@ import java.awt.event.KeyEvent;
 public class webdrivers {
     public static WebDriver loadWebdriver(String userName, String password) throws AWTException {
         // declaration and instantiation of objects/variables
-        System.setProperty("webdriver.chrome.driver", "");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\mdrylew\\OneDrive - Allspring Global Investments Holdings LLC\\Documents\\Code\\B04a-WFQRP-APP204-Remi-QRPCoreDM-2022-09-30\\TestingAutomation4-master\\src\\main\\resources\\drivers\\chromedriver3.exe");
         ChromeOptions options = new ChromeOptions();
+        options.setBinary("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe");
         options.setExperimentalOption("useAutomationExtension", false);
         WebDriver driver = new ChromeDriver(options);
         //comment the above 2 lines and uncomment below 2 lines to use Chrome
 
         //WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        String baseUrl = "";
+        String baseUrl = "https://allspring-uat.codeandtheory.net/proposals";
 
         // launch Fire fox and direct it to the Base URL
 
@@ -29,47 +30,48 @@ public class webdrivers {
 
 
         // press Escape programatically - the print dialog must have focus, obviously
-        Robot r = new Robot();
-        driver.switchTo().activeElement();
-//        r.mouseMove();
-//        r.mousePress(KeyEvent.BUTTON1_DOWN_MASK);
-        for (int i = 0; i < userName.length(); i++) {
-            char c = userName.charAt(i);
-            if (Character.isUpperCase(c)) {
-                r.keyPress(KeyEvent.VK_SHIFT);
-            }
-            r.keyPress(Character.toUpperCase(c));
-            r.keyRelease(Character.toUpperCase(c));
-            if (Character.isUpperCase(c)) {
-                r.keyRelease(KeyEvent.VK_SHIFT);
-            }
-        }
-//            r.delay(delay);
-
-
-        r.keyPress(KeyEvent.VK_TAB);
-        r.keyRelease(KeyEvent.VK_TAB);
-
-        for (int i = 0; i < password.length(); i++) {
-            char c = password.charAt(i);
-            if (Character.isUpperCase(c)) {
-                r.keyPress(KeyEvent.VK_SHIFT);
-            }
-            if (Character.toUpperCase(c) == '@') {
-                r.keyPress(KeyEvent.VK_SHIFT);
-                r.keyPress(KeyEvent.VK_2);
-                r.keyRelease(KeyEvent.VK_2);
-                r.keyRelease(KeyEvent.VK_SHIFT);
-            } else {
-                r.keyPress(Character.toUpperCase(c));
-                r.keyRelease(Character.toUpperCase(c));
-            }
-            if (Character.isUpperCase(c)) {
-                r.keyRelease(KeyEvent.VK_SHIFT);
-            }
-        }
-        r.keyPress(KeyEvent.VK_ENTER);
-        r.keyRelease(KeyEvent.VK_ENTER);
+//        Robot r = new Robot();
+//        driver.switchTo().activeElement();
+////        r.mouseMove();
+////        r.mousePress(KeyEvent.BUTTON1_DOWN_MASK);
+//        for (int i = 0; i < userName.length(); i++) {
+//            char c = userName.charAt(i);
+//            if (Character.isUpperCase(c)) {
+//                r.keyPress(KeyEvent.VK_SHIFT);
+//            }
+//            r.keyPress(Character.toUpperCase(c));
+//            r.keyRelease(Character.toUpperCase(c));
+//            if (Character.isUpperCase(c)) {
+//                r.keyRelease(KeyEvent.VK_SHIFT);
+//            }
+//        }
+////            r.delay(delay);
+//
+//
+//            r.keyPress(KeyEvent.VK_TAB);
+//        r.keyRelease(KeyEvent.VK_TAB);
+//
+//        for (int i = 0; i < password.length(); i++) {
+//            char c = password.charAt(i);
+//            if (Character.isUpperCase(c)) {
+//                r.keyPress(KeyEvent.VK_SHIFT);
+//            }
+//            if (Character.toUpperCase(c) == '@') {
+//                r.keyPress(KeyEvent.VK_SHIFT);
+//                r.keyPress(KeyEvent.VK_2);
+//                r.keyRelease(KeyEvent.VK_2);
+//                r.keyRelease(KeyEvent.VK_SHIFT);
+//            } else {
+//                r.keyPress(Character.toUpperCase(c));
+//                r.keyRelease(Character.toUpperCase(c));
+//            }
+//            if (Character.isUpperCase(c)) {
+//                r.keyRelease(KeyEvent.VK_SHIFT);
+//            }
+//        }
+//
+//        r.keyPress(KeyEvent.VK_ENTER);
+//        r.keyRelease(KeyEvent.VK_ENTER);
 
 
         return driver;

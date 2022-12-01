@@ -1,6 +1,6 @@
 package backend;
 
-import dbconnections.barraOneTables;
+//import dbconnections.barraOneTables;
 import dbconnections.devConnect;
 import org.testng.annotations.Test;
 import sqlQueries.common;

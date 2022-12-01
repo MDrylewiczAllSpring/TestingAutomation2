@@ -81,7 +81,10 @@ public class pagesMain {
         softAssertion.assertAll();
     }
 
-    public String parseXpathWithRow(String xpath, int numberRow) {
+    public String parseXpath(String xpath, int numberRow) {
         return xpath.replace("{0}", String.valueOf(numberRow));
+    }
+    public String parseXpathTwice(String xpath, int numberRow1, int numberRow2) {
+        return xpath.replace("{0}", String.valueOf(numberRow1)).replace("{1}", String.valueOf(numberRow2));
     }
 }

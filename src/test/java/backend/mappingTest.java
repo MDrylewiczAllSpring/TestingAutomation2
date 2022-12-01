@@ -1,6 +1,6 @@
 package backend;
 
-import dbconnections.barraOneTables;
+//import dbconnections.barraOneTables;
 import dbconnections.devConnect;
 import org.testng.annotations.Test;
 import sqlQueries.common;
@@ -66,6 +66,7 @@ public class mappingTest extends TestMain {
 //        compareNumberOfRows(rowListStaging, rowFinalList, totalRow);
 //        //Compare Inbound Files
 //        rowListStaging = devConnect.connectAndGetHashTable(queryStaging);
+        String inboundFile = null;
         excelInBound = new dlInboundMap().readAllRows( inboundFolder, inboundFile + getDatePrevInbound(), headerOutBoundDocRow, headerColumnsExpected);
 //        checkOutboundStructure(excelStagingDataMap, excelOutBound, headerStagingDocRow, tableNameStaging);
 //        compareRowsBetweenStagingInbound(rowListStaging, excelInBound, totalRow);

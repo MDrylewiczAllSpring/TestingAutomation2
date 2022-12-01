@@ -507,6 +507,7 @@ public class TestMain extends pagesMain {
         String fileName = "indexConfig.config";
         FileInputStream fis = new FileInputStream(fileName);
         prop.load(fis);
+        String configLine = null;
         System.out.println(configLine);
 //        System.out.println(prop.getProperty("app.version"));
         return configLine;
@@ -613,6 +614,7 @@ public class TestMain extends pagesMain {
         String[] tempArray2;
 
 
+        String[] tempArray1 = new String[0];
         for (int i = startRow; i < tempArray1.length - startRow; i++) {
             System.out.println("Line"+i+": "+tempArray1[i].toString());
             tempArray1[i].replaceAll(", \",","*@*,");
@@ -642,6 +644,7 @@ public class TestMain extends pagesMain {
         String[] tempArray2 = null;
 
         System.out.println(headersStaging.toString());
+        String[] tempArray1 = new String[0];
         for (int i = startRowNote; i < tempArray1.length - startRowNote; i++) {
 //            System.out.println("Line"+i+": "+tempArray1[i].toString());
 //            tempArray1[i].replaceAll(", \",","*@*,");
@@ -686,6 +689,7 @@ public class TestMain extends pagesMain {
         String[] tempArray2;
 
         int inboundCounter = startRowInbound;
+        Object[] tempArray1 = new Object[0];
         for (int i = startRowStaging; i < tempArray1.length - startRowStaging; i++) {
             for (int k = 0; k < headersStaging.size()-2; k++) {
 //                System.out.println("headers : "+ headersStaging.toString());

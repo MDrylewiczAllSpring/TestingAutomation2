@@ -8,7 +8,7 @@ package ui;
 //import org.openqa.selenium.chrome.ChromeDriver;
 //import org.testng.annotations.Test;
 
-import dbconnections.barraOneTables;
+//import dbconnections.barraOneTables;
 import dbconnections.devConnect;
 import org.testng.annotations.Test;
 import pages.homePage;

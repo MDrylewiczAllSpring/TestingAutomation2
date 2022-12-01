@@ -105,6 +105,7 @@ public class itp_Exec_Trades_FilesTest extends TestMain {
                 //getFinal Doc
                 excelFinalDataMap = new dlNewFinalMap().readAllRows(finalExcelSheet, headerFinalDocRow);
 //            //get sql results
+                String queryFinal = null;
                 List<HashMap> rowFinalList = devConnect.connectAndGetHashTableUAT(queryFinal);
                 List<String> headersFinal = checkTableStructure(excelFinalDataMap, rowFinalList, headerFinalDocRow, finalTableExcelLookup, "Table Name");
 //            //Compare data
