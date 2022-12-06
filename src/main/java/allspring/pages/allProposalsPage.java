@@ -25,6 +25,11 @@ public class allProposalsPage extends pagesMain {
     String quickActionsHeader = "//*[@id=\"root\"]/div/div/div/main/div/div/div[2]/div/div/div[1]";
     String createNewProposalButton = "//*[@id=\"root\"]/div/div/div/main/div/div/div[2]/div/div/div[2]/a";
 
+    String xOutSignOut = "//*[@id=\"modal-root\"]/div/div[2]/div/button";
+    String signOutHeader = "//*[@id=\"modal-dialog-heading\"]";
+    String signOutSubHeader = "//*[@id=\"modal-root\"]/div/div[2]/div/p";
+    String cancelSignOut = "//*[@id=\"modal-root\"]/div/div[2]/div/div/button[1]";
+    String signOut = "//*[@id=\"modal-root\"]/div/div[2]/div/div/button[2]";
 
 
     public void verifyAllProposalsPage() {
@@ -69,12 +74,47 @@ public class allProposalsPage extends pagesMain {
         System.out.println(getWebElementText(createNewProposalButton));
 
     }
-    public void logInto(String email, String password) {
-//        waitForElement(remiLogo);
-////        clickWebElement(sandwichMenu);
+    public void signOut() {
+//        String xOutSignOut = "//*[@id=\"modal-root\"]/div/div[2]/div/button";
+//        String signOutHeader = "//*[@id=\"modal-dialog-heading\"]";
+//        String signOutSubHeader = "//*[@id=\"modal-root\"]/div/div[2]/div/p";
+//        String cancelSignOut = "//*[@id=\"modal-root\"]/div/div[2]/div/div/button[1]";
+//        String signOut = "//*[@id=\"modal-root\"]/div/div[2]/div/div/button[2]";
+        waitForElement(signOutButton);
+        softAssertion.assertTrue(elementExists(signOutButton));
+        System.out.println(getWebElementText(signOutButton));
+        clickWebElement(signOutButton);
+        waitForElement(signOut);
+        softAssertion.assertTrue(elementExists(xOutSignOut));
+        System.out.println(getWebElementText(xOutSignOut));
+        softAssertion.assertTrue(elementExists(signOutHeader));
+        System.out.println(getWebElementText(signOutHeader));
+        softAssertion.assertTrue(elementExists(signOutSubHeader));
+        System.out.println(getWebElementText(signOutSubHeader));
+        softAssertion.assertTrue(elementExists(cancelSignOut));
+        System.out.println(getWebElementText(cancelSignOut));
+        softAssertion.assertTrue(elementExists(signOut));
+        System.out.println(getWebElementText(signOut));
+        //Test X Out
+        clickWebElement(xOutSignOut);
+        softAssertion.assertFalse(elementExists(signOut));
+        clickWebElement(signOutButton);
+        waitForElement(signOut);
+        //Test Cancel
+        clickWebElement(cancelSignOut);
+        softAssertion.assertFalse(elementExists(signOut));
+        clickWebElement(signOutButton);
+        waitForElement(signOut);
+        //Test signOut
+        clickWebElement(signOut);
+        softAssertion.assertFalse(elementExists(signOut));
 //        enterInWebElement(emailInput, email);
 //        enterInWebElement(passwordInput, password);
 //        clickWebElement(signInButton);
 
+    }
+    public void createNewProposal() {
+        waitForElement(leftNavigation);
+        clickWebElement(createNewProposalButton);
     }
 }

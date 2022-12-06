@@ -12,11 +12,11 @@ import java.io.IOException;
 import java.sql.Statement;
 //
 
-public class allProposalsTest extends TestMain {
+public class loginLogOutTest extends TestMain {
     //    WebDriver driver = loadDriverConfig();
     Statement devConnection;
 
-    public allProposalsTest() throws AWTException, IOException {
+    public loginLogOutTest() throws AWTException, IOException {
     }
 
     @Test
@@ -24,10 +24,8 @@ public class allProposalsTest extends TestMain {
         loginPage loginP = new loginPage();
         loginP.verifyLoginPage();
         loginP.logInto("michael.drylewicz@allspringglobal.com", "MikeTest1!");
-        System.out.println("allProposalsPageTest");
+        System.out.println("loginPageTest");
         allProposalsPage allProposalsPage = new allProposalsPage();
-        allProposalsPage.verifyAllProposalsPage();
-        allProposalsPage.signOut();
         driver.close();
 
 
