@@ -1,49 +1,57 @@
 package api;
 //import static io.restassured.RestAssured.given;
 
-import com.google.common.net.HttpHeaders;
-import io.restassured.RestAssured;
-import io.restassured.RestAssured.*;
-import io.restassured.matcher.RestAssuredMatchers.*;
-import io.restassured.response.Response;
-import org.apache.commons.codec.binary.Base64;
-import org.apache.http.HttpEntity;
-import org.apache.poi.ss.formula.functions.T;
-import org.hamcrest.Matchers.*;
-import org.openqa.selenium.remote.http.HttpMethod;
-import org.testng.annotations.Test;
 
-import java.nio.charset.Charset;
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.junit.Test;
+import org.openqa.selenium.remote.http.HttpRequest;
+
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import static io.restassured.RestAssured.given;
 import static org.hamcrest.core.IsEqual.equalTo;
-import static org.testng.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+import static pages.pagesMain.softAssertion;
 
 public class RestAssuredUtil {
     @Test
-    public void whenMeasureResponseTime_thenOK() {
-        System.out.print(given().when().get(" ").getHeaders().toString());
-//        HttpClient client = HttpClient.newHttpClient();
-//
-//        HttpRequest request = HttpRequest.newBuilder()
-//                .GET()
-//                .uri(new URI("https://postman-echo.com/get"))
-//                .build();
-//
-//        HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
-//
-//        logger.info("Status {}", response.statusCode());
-//
-//    }
-//    public HttpHeaders createHeaders(String username, String password){
-//        return new HttpHeaders() {{
-//            String auth = username + ":" + password;
-//            byte[] encodedAuth = Base64.encodeBase64(
-//                    auth.getBytes(Charset.forName("US-ASCII")) );
-//            String authHeader = "Basic " + new String( encodedAuth );
-//            set( "Authorization", authHeader );
-//        }};
-//    }
+    public void givenUserDoesNotExists_whenUserInfoIsRetrieved_then404IsReceived()
+            throws ClientProtocolException, IOException {
+
+        // Given
+        String name = RandomStringUtils.randomAlphabetic( 8 );
+        HttpUriRequest request = new HttpGet( "http://10.24.42.210:8080/get-info");
+
+        // When
+        HttpResponse httpResponse = HttpClientBuilder.create().build().execute( request );
+
+        // Then
+        assertThat(
+
+                httpResponse.getStatusLine().getStatusCode(),
+                equalTo(HttpStatus.SC_OK));
+        System.out.println(httpResponse.getStatusLine().getStatusCode());
+        System.out.println(httpResponse.getEntity().getContent());
     }
+//    @Test
+//    public void whenMeasureResponseTime_thenOK() {
+//        RestAssured.baseURI = "https://allspring-uat.codeandtheory.net";
+////        RestAssured.baseURI = "http://10.24.42.210:8080";
+////        RestAssured.port = 443;
+////        Response response = RestAssured.get("/get-info");
+//        Response response = RestAssured.get("https://allspring-uat.codeandtheory.net");
+//        long timeInMS = response.time();
+//        long timeInS = response.timeIn(TimeUnit.SECONDS);
+//
+////        softAssertion.assertTrue(timeInS, timeInMS/1000);
+//    }
 }
+

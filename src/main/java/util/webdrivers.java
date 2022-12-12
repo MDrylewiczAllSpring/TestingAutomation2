@@ -21,7 +21,7 @@ public class webdrivers {
 
         //WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        String baseUrl = "https://allspring-uat.codeandtheory.net/proposals";
+        String baseUrl = "https://allspring-uat.codeandtheory.net";
 
         // launch Fire fox and direct it to the Base URL
 

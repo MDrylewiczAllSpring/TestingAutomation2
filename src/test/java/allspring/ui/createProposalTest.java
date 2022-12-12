@@ -24,7 +24,7 @@ public class createProposalTest extends TestMain {
     public void accountPageTest() throws AWTException, IOException {
         loginPage loginP = new loginPage();
         loginP.verifyLoginPage();
-        loginP.logInto("michael.drylewicz@allspringglobal.com", "MikeTest1!");
+        loginP.logInto("--", "--");
         System.out.println("createProposalsPageTest");
         allProposalsPage allProposalsPage = new allProposalsPage();
         allProposalsPage.createNewProposal();
