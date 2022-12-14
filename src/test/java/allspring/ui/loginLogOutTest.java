@@ -23,7 +23,7 @@ public class loginLogOutTest extends TestMain {
     public void accountPageTest() throws AWTException, IOException {
         loginPage loginP = new loginPage();
         loginP.verifyLoginPage();
-        loginP.logInto("michael.drylewicz@allspringglobal.com", "MikeTest1!");
+        loginP.logInto("--", "--");
         System.out.println("loginPageTest");
         allProposalsPage allProposalsPage = new allProposalsPage();
         driver.close();
