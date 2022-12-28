@@ -133,6 +133,8 @@
       <artifactId>rest-assured</artifactId>
       <version>4.2.0</version>
     </dependency>
+
+
     <!--    <dependency>-->
     <!--      <groupId>RemiTestingAutomation</groupId>-->
     <!--      <artifactId>TestingAutomation</artifactId>-->
@@ -150,8 +152,25 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.0.0-M5</version>
       </plugin>
+<!--      <plugin>-->
+<!--        <groupId>org.apache.maven.plugins</groupId>-->
+<!--        <artifactId>maven-shade-plugin</artifactId>-->
+<!--        <version>2.3</version>-->
+<!--        <configuration>-->
+<!--          <createDependencyReducedPom>false</createDependencyReducedPom>-->
+<!--        </configuration>-->
+<!--        <executions>-->
+<!--          <execution>-->
+<!--            <phase>package</phase>-->
+<!--            <goals>-->
+<!--              <goal>shade</goal>-->
+<!--            </goals>-->
+<!--          </execution>-->
+<!--        </executions>-->
+<!--      </plugin>-->
     </plugins>
   </build>
+
 
 
   <profiles>
