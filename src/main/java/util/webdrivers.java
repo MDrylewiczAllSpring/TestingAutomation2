@@ -1,5 +1,6 @@
 package util;
 
+import net.sourceforge.htmlunit.corejs.javascript.tools.shell.Environment;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -7,12 +8,14 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.io.InputStream;
+import java.nio.file.Path;
 
 
 public class webdrivers {
     public static WebDriver loadWebdriver(String userName, String password) throws AWTException {
         // declaration and instantiation of objects/variables
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\mdrylew\\OneDrive - Allspring Global Investments Holdings LLC\\Documents\\Code\\B04a-WFQRP-APP204-Remi-QRPCoreDM-2022-09-30\\TestingAutomation4-master\\src\\main\\resources\\drivers\\chromedriver3.exe");
+        System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\drivers\\chromedriver3.exe");
         ChromeOptions options = new ChromeOptions();
         options.setBinary("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe");
         options.setExperimentalOption("useAutomationExtension", false);
